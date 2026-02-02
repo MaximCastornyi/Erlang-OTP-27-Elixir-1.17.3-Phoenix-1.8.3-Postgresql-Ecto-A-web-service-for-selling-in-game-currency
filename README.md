@@ -7,13 +7,13 @@ To start your Phoenix server:
 ```bash
 $mix setup
 ```
-2) Make seeding:
-```bash
-$mix run priv/repo/seeds.exs
-```
-3) Run migrations:
+2) Run migrations:
 ```bash
 $mix ecto:migrate
+```
+3) Make seeding:
+```bash
+$mix run priv/repo/seeds.exs
 ```
 4) Run project:
 ```bash
