@@ -11,11 +11,11 @@ $mix setup
 ```bash
 $mix run priv/repo/seeds.exs
 ```
-3) Run migrations:
+3)Run migrations:
 ```bash
 $mix ecto:migrate
 ```
-4) Run project:
+4)Run project:
 ```bash
 $mix phx.server
 ```
