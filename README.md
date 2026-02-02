@@ -1,14 +1,24 @@
-<<<<<<< HEAD
-# Raffley
+#Erlang-OTP-27-Elixir-1.17.3-Phoenix-1.8.3-Postgresql-Ecto-A-web-service-for-selling-in-game-currency
+
 
 To start your Phoenix server:
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+1)Before launching the project, you need to install and setup dependencies:
+```bash
+$mix setup
+```
+2) Run migrations:
+```bash
+$mix ecto:migrate
+```
+2) Run project:
+```bash
+$mix phx.server
+```
+<img width="1000" height="500" alt="1" src="https://github.com/user-attachments/assets/0a40267b-d937-4e44-8beb-333fd304e1c4" />
+<br><br>
+<img width="1000" height="500" alt="2" src="https://github.com/user-attachments/assets/6c5cc8ab-e12d-4205-803d-b510c271e364" />
+<br><br>
 
 ## Learn more
 
