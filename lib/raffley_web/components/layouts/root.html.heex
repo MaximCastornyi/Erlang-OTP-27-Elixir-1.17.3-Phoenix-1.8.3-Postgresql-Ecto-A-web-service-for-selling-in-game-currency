@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title default="Raffley" suffix=" · Phoenix Framework">
+      {assigns[:page_title]}
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
+    </script>
+    <script>
+      (() => {
+        const setTheme = (theme) => {
+          if (theme === "system") {
+            localStorage.removeItem("phx:theme");
+            document.documentElement.removeAttribute("data-theme");
+          } else {
+            localStorage.setItem("phx:theme", theme);
+            document.documentElement.setAttribute("data-theme", theme);
+          }
+        };
+        if (!document.documentElement.hasAttribute("data-theme")) {
+          setTheme(localStorage.getItem("phx:theme") || "system");
+        }
+        window.addEventListener("storage", (e) => e.key === "phx:theme" && setTheme(e.newValue || "system"));
+        
+        window.addEventListener("phx:set-theme", (e) => setTheme(e.target.dataset.phxTheme));
+      })();
+    </script>
+  </head>
+  <body>
+    <ul class="bg-gray-150 menu menu-horizontal w-full relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+      <%= if @current_scope do %>
+        <li>
+          {@current_scope.user.username}
+        </li>
+        <li>
+          <.link href={~p"/users/settings"}>Settings</.link>
+        </li>
+        <li>
+          <.link href={~p"/users/log-out"} method="delete">Log out</.link>
+        </li>
+      <% else %>
+        <li>
+          <.link href={~p"/users/register"}>Register</.link>
+        </li>
+        <li>
+          <.link href={~p"/users/log-in"}>Log in</.link>
+        </li>
+      <% end %>
+    </ul>
+  <header class="px-4 sm:px-6 lg:px-8  border-b border-zinc-300 dark:bg-gray-800 shadow-md">
+  <div class="flex items-center justify-between py-3 text-sm">
+    <div class="-mt-10">
+      <a href="/">
+        <img src={~p"/images/raffley-logo.svg"} width="150" />
+      </a>
+    </div>
+    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
+      <.link navigate={~p"/raffles"}>
+        Raffles
+      </.link>
+      <.link navigate={~p"/estimator"}>
+        Estimator
+      </.link>
+      <.link navigate={~p"/admin/raffles"}>
+        Admin
+      </.link>
+      <.link navigate={~p"/charities"}>
+        Charities
+      </.link>
+    </div>
+  </div>
+</header>
+    {@inner_content}
+  </body>
+</html>
