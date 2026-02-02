@@ -15,7 +15,7 @@ $mix ecto:migrate
 ```bash
 $mix phx.server
 ```
-<img width="1000" height="500" alt="1" src="https://github.com/user-attachments/assets/0a40267b-d937-4e44-8beb-333fd304e1c4" />
+
 <br><br>
 <img width="1000" height="500" alt="2" src="https://github.com/user-attachments/assets/6c5cc8ab-e12d-4205-803d-b510c271e364" />
 <br><br>
